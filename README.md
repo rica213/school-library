@@ -94,7 +94,7 @@ sh
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author1**
+👤 **Clarielle Larissa Andrainasoa**
 
 - GitHub: [Tao (Larissa)](https://github.com/rica213)
 - Twitter: [@alc3and](https://twitter.com/alc3and)
