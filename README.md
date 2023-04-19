@@ -44,6 +44,7 @@ In this project we will manage the school library using Ruby.
 
 - **Add Person, Student, and Teacher classes**
 - **use the "Decorator" design pattern.**
+- **set up associations.**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -106,7 +107,6 @@ sh
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **set up associations.**
 - [ ] **add basic UI.**
 - [ ] **refactor your code.**
 - [ ] **preserve data.**
