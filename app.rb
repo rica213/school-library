@@ -10,7 +10,9 @@ class App
   end
 
   def intro
+    puts '=============================='
     puts 'Welcome to School Library App!'
+    puts '=============================='
   end
 
   def display_options
@@ -117,7 +119,9 @@ class App
 
   # option 7 - Exit
   def exit_app
+    puts '============================='
     puts 'Thank you for using this app!'
+    puts '============================='
     exit
   end
 
