@@ -85,21 +85,32 @@ class App
     puts 'Book created successfully'
   end
 
+  # Handle selecting a book
+
+  def select_book
+    puts 'Select a book from the following list by number (not by id)'
+    @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: \"#{book.author}\"" }
+  end
+
+  # Handle selecting a person
+
+  def select_person
+    puts 'Select a person from the following list by number (not by id)'
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+  end
+
   # option 5 - Create a rental
   def create_rental
     if @books.empty? || @people.empty?
       puts 'There are no books or people to create a rental'
       return
     end
-    puts 'Select a book from the following list by number (not by id)'
-    @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: \"#{book.author}\"" }
-    book_id = gets.chomp.to_i
-
-    puts 'Select a person from the following list by number (not by id)'
-    @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
+    
     person_id = gets.chomp.to_i
+        book_id = gets.chomp.to_i
+
 
     print 'Date: '
     date = gets.chomp
