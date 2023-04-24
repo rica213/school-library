@@ -107,10 +107,9 @@ class App
       puts 'There are no books or people to create a rental'
       return
     end
-    
-    person_id = gets.chomp.to_i
-        book_id = gets.chomp.to_i
 
+    person_id = gets.chomp.to_i
+    book_id = gets.chomp.to_i
 
     print 'Date: '
     date = gets.chomp
