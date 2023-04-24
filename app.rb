@@ -40,11 +40,11 @@ class App
 
   # Create a student
   def create_student
+    print 'Name: '
+    name = gets.chomp.capitalize
     print 'Age: '
     age = gets.to_i
-    print "\nName: "
-    name = gets.chomp.capitalize
-    print "\nHas parent permission? [Y/N]: "
+    print 'Has parent permission? [Y/N]: '
     permission = gets.downcase == 'y'
     @people << Student.new(age, name, permission)
     puts 'Person created successfully'
@@ -52,11 +52,11 @@ class App
 
   # Create a teacher
   def create_teacher
+    print 'Name: '
+    name = gets.chomp.capitalize
     print 'Age: '
     age = gets.to_i
-    print "\nName: "
-    name = gets.chomp.capitalize
-    print "\nSpecialization: "
+    print 'Specialization: '
     specialization = gets.chomp.capitalize
     @people << Teacher.new(specialization, age, name)
     puts 'Person created successfully'
@@ -77,9 +77,9 @@ class App
 
   # option 4 - Create a book
   def create_book
-    print "\nTitle: "
+    print 'Title: '
     title = gets.chomp.capitalize
-    print "\nAuthor: "
+    print 'Author: '
     author = gets.chomp.capitalize
     @books << Book.new(title, author)
     puts 'Book created successfully'
@@ -125,6 +125,7 @@ class App
     exit
   end
 
+  # User choose between option 1 to 7
   def execute_option(option)
     case option
     when '1'
