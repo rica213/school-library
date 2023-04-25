@@ -1,7 +1,7 @@
 require_relative './student'
 require_relative './teacher'
 require_relative './book'
-require_relative './preserve_data.rb'
+require_relative './preserve_data'
 
 class App
   include Preserve
@@ -9,6 +9,7 @@ class App
     @people = []
     @books = []
     @rentals = []
+    load_books
   end
 
   def ask_input(input)
@@ -18,7 +19,7 @@ class App
   # option 1 - List all books
   def list_books
     puts 'No book yet!' if @books.empty?
-    @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
+    @books.each { |book| puts "Title: \"#{book.title}\", Author: \"#{book.author}\" " }
   end
 
   # option 2 - List all people
@@ -116,7 +117,7 @@ class App
     puts 'Thank you for using this app!'
     puts '============================='
     write_book
-    load_books
+    # load_books
     exit
   end
 end
