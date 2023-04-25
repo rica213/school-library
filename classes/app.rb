@@ -9,21 +9,8 @@ class App
     @rentals = []
   end
 
-  def intro
-    puts '=============================='
-    puts 'Welcome to School Library App!'
-    puts '=============================='
-  end
-
-  def display_options
-    puts 'Please choose an option by entering a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
+  def ask_input(input)
+    puts input
   end
 
   # option 1 - List all books
@@ -39,11 +26,7 @@ class App
   end
 
   # Create a student
-  def create_student
-    print 'Name: '
-    name = gets.chomp.capitalize
-    print 'Age: '
-    age = gets.to_i
+  def create_student(name, age)
     print 'Has parent permission? [Y/N]: '
     permission = gets.downcase == 'y'
     @people << Student.new(age, name, permission)
@@ -51,11 +34,7 @@ class App
   end
 
   # Create a teacher
-  def create_teacher
-    print 'Name: '
-    name = gets.chomp.capitalize
-    print 'Age: '
-    age = gets.to_i
+  def create_teacher(name, age)
     print 'Specialization: '
     specialization = gets.chomp.capitalize
     @people << Teacher.new(specialization, age, name)
@@ -64,12 +43,15 @@ class App
 
   # option 3 - Create a person
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     option = gets.chomp
+    print 'Name: '
+    name = gets.chomp.capitalize
+    print 'Age: '
+    age = gets.to_i
     if option == '1'
-      create_student
+      create_student(name, age)
     elsif option == '2'
-      create_teacher
+      create_teacher(name, age)
     else
       puts "You entered a wrong input, it's either 1 (for a new student) or 2 (for a new teacher)"
     end
@@ -77,6 +59,7 @@ class App
 
   # option 4 - Create a book
   def create_book
+    puts '------- Creating a book ----------'
     print 'Title: '
     title = gets.chomp.capitalize
     print 'Author: '
@@ -86,14 +69,12 @@ class App
   end
 
   # Handle selecting a book
-
   def select_book
     puts 'Select a book from the following list by number (not by id)'
     @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: \"#{book.author}\"" }
   end
 
   # Handle selecting a person
-
   def select_person
     puts 'Select a person from the following list by number (not by id)'
     @people.each_with_index do |person, index|
@@ -133,25 +114,5 @@ class App
     puts 'Thank you for using this app!'
     puts '============================='
     exit
-  end
-
-  # User choose between option 1 to 7
-  def execute_option(option)
-    case option
-    when '1'
-      list_books
-    when '2'
-      list_people
-    when '3'
-      create_person
-    when '4'
-      create_book
-    when '5'
-      create_rental
-    when '6'
-      list_all_rentals
-    else
-      puts 'You entered a wrong input, please try again'
-    end
   end
 end
