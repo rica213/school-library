@@ -1,8 +1,10 @@
 require_relative './student'
 require_relative './teacher'
 require_relative './book'
+require_relative './preserve_data.rb'
 
 class App
+  include Preserve
   def initialize
     @people = []
     @books = []
@@ -113,6 +115,8 @@ class App
     puts '============================='
     puts 'Thank you for using this app!'
     puts '============================='
+    write_book
+    load_books
     exit
   end
 end
