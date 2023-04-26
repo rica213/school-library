@@ -117,7 +117,7 @@ class App
     puts '============================='
     puts 'Thank you for using this app!'
     puts '============================='
-    write_book
+    write_books
     write_people
     exit
   end

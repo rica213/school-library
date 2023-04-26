@@ -5,7 +5,8 @@ require_relative './teacher'
 require_relative './person'
 
 module Preserve
-  def write_book
+  # Write all created books in books.json file
+  def write_books
     book_array = []
     @books.each { |book| book_array << { title: book.title, author: book.author } }
     # parse the array of hashes
@@ -17,10 +18,12 @@ module Preserve
   def load_books
     # read books in book.json
     book_data = File.read('./data/books.json')
-    arr = JSON.parse(book_data)
-    arr.each { |book| @books << Book.new(book['title'], book['author']) }
+    book_hash = JSON.parse(book_data)
+    book_hash.each { |book| @books << Book.new(book['title'], book['author']) }
   end
 
+  # Write all existing person in people.json file
+  # Distinguish between Student and Teacher
   def write_people
     people = []
     @people.each do |person|
@@ -36,10 +39,12 @@ module Preserve
     File.write('./data/people.json', person_json_data, mode: 'w')
   end
 
+  # Read all people saved in the people.json file
+  # Load the resulting data into the new session
   def load_people
     people_data = File.read('./data/people.json')
-    arr = JSON.parse(people_data)
-    arr.each do |person|
+    people_hash = JSON.parse(people_data)
+    people_hash.each do |person|
       if person['type'] == 'student'
         @people << Student.new(person['age'], person['name'], person['permission'])
       elsif person['type'] == 'teacher'
