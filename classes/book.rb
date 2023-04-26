@@ -1,4 +1,4 @@
-require_relative "./rental"
+require_relative './rental'
 
 class Book
   attr_accessor :title, :author, :rentals
@@ -19,7 +19,7 @@ class Book
       object_id: object_id,
       title: @title,
       author: @author,
-      rentals: @rentals,
+      rentals: @rentals
     }
   end
 end

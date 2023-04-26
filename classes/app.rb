@@ -106,14 +106,16 @@ class App
 
   # option 6 - List all rentals for a given person id
   def list_all_rentals
-    puts "============ PEOPLE ==========="
+    puts '============ PEOPLE ==========='
     list_people
-    puts "==============================="
+    puts '==============================='
     print 'ID of person: '
     id = gets.chomp.to_i
     puts 'Rentals:'
     @rentals.each do |rental|
-      puts "Date: #{rental['date']}, Book: \"#{rental['book']['title']}\" by #{rental['book']['author']}" if rental['person']['id'] == id
+      if rental['person']['id'] == id
+        puts "Date: #{rental['date']}, Book: \"#{rental['book']['title']}\" by #{rental['book']['author']}"
+      end
     end
   end
 
