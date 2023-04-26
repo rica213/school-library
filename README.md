@@ -30,7 +30,9 @@
 
 # 📖 SCHOOL LIBRARY <a name="about-project"></a>
 
-In this project we will manage the school library using Ruby.
+Built on Ruby, this application streamlines the library management process for schools. It features an easy-to-use interface that lets users add, and display books, people (student or teacher). It also includes reporting capabilities to generate book and borrower activity reports. The app is flexible and customizable to fit the needs of any school.
+
+![Screenshot from 2023-04-26 23-06-22-1](https://user-images.githubusercontent.com/10439283/234715484-d774b9f1-45b6-487d-b654-f2c790114f6f.png)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -70,9 +72,10 @@ Clone this repository to your desired folder:
 
 Example commands:
 
-sh
+```sh
   cd my-folder
   git clone git@github.com:rica213/school-library.git
+  ```
 
 ### Install
 
@@ -80,16 +83,18 @@ Install this project with:
 
 Example command:
 
-sh
+```sh
   cd school-library
   bundle install
+  ```
   
 ### Usage
 
   Example command:
 
-sh
+```sh
   ruby main.rb
+  ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
