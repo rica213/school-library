@@ -1,0 +1,1 @@
+[{"_class":"Rental","object_id":140,"date":"2020/5/5","book":"#<Book:0x000055d04738fd70>","person":"#<Teacher:0x000055d047082b28>"},{"_class":"Rental","object_id":160,"date":"2525/8/8","book":"#<Book:0x000055d04738fd70>","person":"#<Student:0x000055d04738d188>"}]

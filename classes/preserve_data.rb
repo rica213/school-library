@@ -1,5 +1,4 @@
-require "json"
-require "ostruct"
+require 'json'
 
 def write_file(obj, filename)
   # serialization : object to hash
@@ -7,17 +6,15 @@ def write_file(obj, filename)
   # generate json from the hash
   data_json = JSON.generate(data)
   # write generated json data to file
-  File.write(filename, data_json, mode: "w")
+  File.write(filename, data_json, mode: 'w')
 end
 
 def read_file(filename)
-  if File.exists?(filename) and File.size(filename) != 0
+  if File.exist?(filename) and File.size(filename) != 0
     # read the data from filename
     data = File.read(filename)
     # convert json to hash
-    data_hash = JSON.parse(data)
-    # deserialization: hash to object
-    obj = data_hash.map { |item| OpenStruct.new(item) }
+    JSON.parse(data)
   else
     # Return empty array if filename does not exist
     []
