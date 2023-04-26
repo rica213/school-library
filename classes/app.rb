@@ -12,12 +12,14 @@ class App
 
   # option 1 - List all books
   def list_books
+    @books = read_file('./data/books.json')
     puts 'No book yet!' if @books.empty?
     @books.each { |book| puts "Title: \"#{book['title']}\", Author: \"#{book['author']}\" Rentals: #{book['rentals']}" }
   end
 
   # option 2 - List all people
   def list_people
+    @people = read_file('./data/people.json')
     puts 'We do not have people yet' if @people.empty?
     @people.each do |person|
       puts "Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}, Rentals: #{person['rentals']}"
@@ -72,12 +74,14 @@ class App
 
   # Handle selecting a book
   def select_book
+    @books = read_file('./data/books.json')
     puts 'Select a book from the following list by number (not by id)'
     @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book['title']}\", Author: \"#{book['author']}\"" }
   end
 
   # Handle selecting a person
   def select_person
+    @people = read_file('./data/people.json')
     puts 'Select a person from the following list by number (not by id)'
     @people.each_with_index do |person, index|
       puts "#{index}) Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
@@ -106,9 +110,10 @@ class App
 
   # option 6 - List all rentals for a given person id
   def list_all_rentals
-    puts '============ PEOPLE ==========='
+    @rentals = read_file('./data/rentals.json')
+    puts '=================== PEOPLE ==================='
     list_people
-    puts '==============================='
+    puts '=============================================='
     print 'ID of person: '
     id = gets.chomp.to_i
     puts 'Rentals:'

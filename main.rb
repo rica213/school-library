@@ -6,6 +6,12 @@ def intro
   puts '=============================='
 end
 
+def separator
+  puts ""
+  puts " -------------------------------------------------"
+  puts ""
+end
+
 # Choose from option 1 to 7
 def display_options
   puts 'Please choose an option by entering a number:'
@@ -48,7 +54,9 @@ def main
     if option == '7'
       app.exit_app
     else
+      separator
       execute_option(option, app)
+      separator
     end
   end
 end
