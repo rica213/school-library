@@ -4,29 +4,24 @@ require_relative './book'
 require_relative './preserve_data'
 
 class App
-  include Preserve
   def initialize
-    @people = []
+    @people = read_file('./data/people.json')
     @books = []
+    #@books = read_file('./data/books.json')
     @rentals = []
-    load_books
-    load_people
-  end
-
-  def ask_input(input)
-    puts input
+    #@rentals = read_file('./data/rentals.json')
   end
 
   # option 1 - List all books
   def list_books
     puts 'No book yet!' if @books.empty?
-    @books.each { |book| puts "Title: \"#{book.title}\", Author: \"#{book.author}\" " }
+    @books.each { |book| puts "Title: \"#{book.title}\", Author: \"#{book.author}\" Rentals: #{book.rentals}" }
   end
 
   # option 2 - List all people
   def list_people
     puts 'We do not have people yet' if @people.empty?
-    @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}, Rentals: #{person.rentals}" }
   end
 
   # Create a student
@@ -34,6 +29,7 @@ class App
     print 'Has parent permission? [Y/N]: '
     permission = gets.downcase == 'y'
     @people << Student.new(age, name, permission)
+    write_file(@people, './data/people.json')
     puts 'Person created successfully'
   end
 
@@ -42,6 +38,7 @@ class App
     print 'Specialization: '
     specialization = gets.chomp.capitalize
     @people << Teacher.new(specialization, age, name)
+    write_file(@people, './data/people.json')
     puts 'Person created successfully'
   end
 
@@ -69,6 +66,7 @@ class App
     print 'Author: '
     author = gets.chomp.capitalize
     @books << Book.new(title, author)
+    write_file(@books, './data/books.json')
     puts 'Book created successfully'
   end
 
@@ -92,13 +90,17 @@ class App
       puts 'There are no books or people to create a rental'
       return
     end
-
-    person_id = gets.chomp.to_i
+    
+    select_book
     book_id = gets.chomp.to_i
+
+    select_person
+    person_id = gets.chomp.to_i
 
     print 'Date: '
     date = gets.chomp
     @rentals << Rental.new(date, @books[book_id], @people[person_id])
+    write_file(@rentals, './data/rentals.json')
     puts 'Rental created successfully'
   end
 
@@ -117,8 +119,6 @@ class App
     puts '============================='
     puts 'Thank you for using this app!'
     puts '============================='
-    write_books
-    write_people
     exit
   end
 end

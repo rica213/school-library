@@ -1,10 +1,10 @@
-require_relative './person'
+require_relative "./person"
 
 class Student < Person
   attr_reader :classroom
   attr_accessor :parent_permission, :age, :name
 
-  def initialize(age, name, _parent_permission, classroom = ' ')
+  def initialize(age, name, _parent_permission, classroom = " ")
     super(age, name, parent_permission: true)
     @classroom = classroom
   end
@@ -16,5 +16,18 @@ class Student < Person
 
   def play_hooky
     '¯\(ツ)/¯'
+  end
+
+  def to_h
+    {
+      _class: self.class.name,
+      object_id: self.object_id,
+      id: @id,
+      name: @name,
+      age: @age,
+      parent_permission: @parent_permission,
+      rentals: @rentals,
+      classroom: @classroom,
+    }
   end
 end
