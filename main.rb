@@ -7,9 +7,9 @@ def intro
 end
 
 def separator
-  puts ""
-  puts " -------------------------------------------------"
-  puts ""
+  puts ''
+  puts ' -------------------------------------------------'
+  puts ''
 end
 
 # Choose from option 1 to 7
