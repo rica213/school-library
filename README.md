@@ -50,6 +50,7 @@ Built on Ruby, this application streamlines the library management process for s
 - **Add basic UI.**
 - **Follow best practices.**
 - **Preserve data.**
+- **Implement unit tests.**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -115,7 +116,8 @@ Example command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **unit tests.**
+  - **Handle all the exceptions from user input**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
