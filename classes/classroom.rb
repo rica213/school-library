@@ -10,7 +10,7 @@ class Classroom
   end
 
   def students=(student)
-    @students.append(student)
+    @students.include?(student) ? @students : @students.append(student)
     student.classroom = self
   end
 end
