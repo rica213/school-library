@@ -22,14 +22,19 @@ class App
     @people = read_file('./data/people.json')
     puts 'We do not have people yet' if @people.empty?
     @people.each do |person|
-      puts "Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}, Rentals: #{person['rentals']}"
+      puts "Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}, Rentals: #{person['rentals']}, Parent_permission: #{person['parent_permission']}"
     end
   end
 
   # Create a student
   def create_student(name, age)
     print 'Has parent permission? [Y/N]: '
-    permission = gets.downcase == 'y'
+    permission = gets.downcase
+    if permission =='y'
+      permission = true
+    else
+      permission = false
+    end
     @people << Student.new(age, name, permission)
     write_file(@people, './data/people.json')
     puts 'Person created successfully'
