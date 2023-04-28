@@ -29,7 +29,8 @@ class App
   # Create a student
   def create_student(name, age)
     print 'Has parent permission? [Y/N]: '
-    permission = gets.downcase == 'y'
+    permission = gets.downcase
+    permission = permission == 'y'
     @people << Student.new(age, name, permission)
     write_file(@people, './data/people.json')
     puts 'Person created successfully'
